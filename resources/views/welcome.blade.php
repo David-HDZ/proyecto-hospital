@@ -4,7 +4,7 @@
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 container mb-4">
             <div class="jumbotron">
-                <h1 class="display-4">Bienvenido</h1>
+                <h1 class="display-4">¡Bienvenido!</h1>
                 <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
                     attention
                     to featured content or information.</p>
