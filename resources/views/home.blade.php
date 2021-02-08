@@ -22,24 +22,16 @@
             </div>
 
             <div class="row">
-                @for ($i = 0; $i < 3; $i++)
-                    <div class="col col-12 col-lg-4 my-3">
+                    <div class="col col-12 col-lg-12 my-3">
                         <div class="card text-center">
                             <div class="card-header">
-                                Featured
+                                Formulario Covid-19
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                2 days ago
+                                <a href="{{route('formulario-registro') }}" class="btn btn-primary">Registrar Paciente</a>
                             </div>
                         </div>
                     </div>
-                @endfor
             </div>
         @else
             <!-- SECCION PARA LOS ADMINISTRADORES -->
