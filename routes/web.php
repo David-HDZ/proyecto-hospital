@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PacienteController;
+use App\Http\Resources\PacienteResource;
+use App\Models\Paciente;
 
 
 /*
@@ -22,5 +25,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/formulario-registro', [App\Http\Controllers\HomeController::class, 'formulario'])->name('formulario-registro');
-Route::resource('pacientes', 'PacienteController');
+Route::resource('pacientes', PacienteController::class);
+/*
+Route::get('/pacientes', function () {
+    return PacienteResource::collection(Paciente::all());
+});
+*/
