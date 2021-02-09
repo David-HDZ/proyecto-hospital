@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PacienteFormRequest;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 function conPun($num)
 {
@@ -20,6 +19,17 @@ function conPun($num)
 
 class PacienteController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('esMedico');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -83,7 +93,8 @@ class PacienteController extends Controller
         $paciente->direccion = $request->get('inputDireccion');
         $paciente->tipo = $tipo;
         $paciente->save();
-        return redirect()->route('pacientes.index');
+        return redirect()->route('pacientes.index')
+            ->with('success', 'Se añadió el paciente correctamente');;
     }
 
     /**
@@ -105,7 +116,7 @@ class PacienteController extends Controller
      */
     public function edit(Paciente $paciente)
     {
-        //
+        return view('pacientes.editar', compact('paciente'));
     }
 
     /**
@@ -115,9 +126,17 @@ class PacienteController extends Controller
      * @param  \App\Models\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paciente $paciente)
+    public function update(PacienteFormRequest $request, Paciente $paciente)
     {
-        //
+        $paciente->nombre = $request->get('inputNombre');
+        $paciente->sexo = $request->get('inputSexo');
+        $paciente->edad = $request->get('inputEdad');
+        $paciente->telefono = $request->get('inputTelefono');
+        $paciente->direccion = $request->get('inputDireccion');
+        $paciente->save();
+
+        return redirect()->route('pacientes.index')
+            ->with('success', 'Se actualizaron los datos del paciente correctamente');;
     }
 
     /**
@@ -128,6 +147,8 @@ class PacienteController extends Controller
      */
     public function destroy(Paciente $paciente)
     {
-        //
+        $paciente->delete();
+        return redirect()->route('pacientes.index')
+            ->with('success', 'El paciente se eliminó de la base de datos');
     }
 }

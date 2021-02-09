@@ -24,18 +24,32 @@ class PacienteFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'inputNombre'=>'required|max:50',
-            'inputSexo'=>'required',
-            'inputEdad'=>'required|min:1',
-            'inputTelefono'=>'required|max:10',
-            'inputDireccion'=>'required|max:200',
-            'pregunta1'=>'required',
-            'pregunta2'=>'required',
-            'pregunta3'=>'required',
-            'pregunta4'=>'required',
-            'pregunta5'=>'required',
-            'pregunta6'=>'required',
-            'pregunta7'=>'required',
+            'inputNombre' => 'required|max:50',
+            'inputSexo' => 'required',
+            'inputEdad' => 'required|min:1|integer',
+            'inputTelefono' => 'required|min:8|max:10',
+            'inputDireccion' => 'required|max:200',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'inputNombre.required' => 'Ingresa el nombre',
+            'inputSexo.required' => 'Selecciona el sexo',
+            'inputEdad.required' => 'Ingresa la edad',
+            'inputEdad.min' => 'La edad mínima es 0',
+            'inputEdad.integer' => 'La edad debe ser un entero',
+            'inputEdad.min' => 'Edad incorrecta',
+            'inputTelefono.required' => 'Ingresa el teléfono',
+            'inputTelefono.min' => 'El número de teléfono es muy corto',
+            'inputTelefono.max' => 'El número de teléfono es muy largo',
+            'inputDireccion.required' => 'Ingresa la dirección',
         ];
     }
 }

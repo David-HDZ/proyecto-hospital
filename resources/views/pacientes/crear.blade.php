@@ -6,39 +6,67 @@
             <div class="col-12 col-md-8">
                 <form method="POST" action="{{ route('pacientes.store') }}" role="form">
                     @csrf
-                    <h2 class="text-center my-4"> Registro de pacientes </h2>
+                    <h2 class="text-center my-4">Registro de pacientes </h2>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputNombre">Nombre Completo</label>
-                            <input type="text" class="form-control" id="inputNombre" name="inputNombre" required>
+                            <input type="text" class="form-control @error('inputNombre') is-invalid @enderror"" id="
+                                inputNombre" name="inputNombre">
+                            @error('inputNombre')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputSexo">Sexo</label>
-                            <select id="inputSexo" name="inputSexo" class="form-control" required>
-                                <option value="H"> Hombre </option>
-                                <option value="M"> Mujer </option>
+                            <select id="inputSexo" name="inputSexo" class="form-control @error('inputSexo') is-invalid @enderror">
+                                <option value="">Elige...</option>
+                                <option value="H">Hombre </option>
+                                <option value="M">Mujer </option>
                             </select>
+                            @error('inputSexo')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputEdad">Edad</label>
-                            <input type="number" class="form-control" id="inputEdad" name="inputEdad" required min="1">
+                            <input type="text" class="form-control @error('inputEdad') is-invalid @enderror"
+                                id="inputEdad" name="inputEdad" min="1">
+                            @error('inputEdad')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputTelefono">Telefono</label>
-                            <input type="phone" class="form-control" id="inputTelefono" placeholder="5534235175"
-                                name="inputTelefono" required>
+                            <input type="tel" class="form-control @error('inputTelefono') is-invalid @enderror"
+                                id="inputTelefono" placeholder="5534235175" name="inputTelefono">
+                            @error('inputTelefono')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputDireccion">Direccion</label>
-                            <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" required>
+                            <input type="text" class="form-control @error('inputDireccion') is-invalid @enderror"" id="
+                                inputDireccion" name="inputDireccion">
+                            @error('inputDireccion')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-
                     </div>
 
-                    <h2 class="text-left my-4"> Preguntas </h2>
+                    <h2 class="text-left my-4">Preguntas</h2>
                     <!-- FORMULARIO -->
                     <div class="form-group row text-left">
                         <label for="pregunta1"
@@ -152,11 +180,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input ml-5" type="radio" name="pregunta7" id="alergia2" value="2">
-                            <label class="form-check-label" for="alergia2">Si (alimentos) </label>
+                            <label class="form-check-label" for="alergia2">Sí (alimentos) </label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input ml-5" type="radio" name="pregunta7" id="alergia3" value="3">
-                            <label class="form-check-label" for="alergia3">Si (medicamentos)</label>
+                            <label class="form-check-label" for="alergia3">Sí (medicamentos)</label>
                         </div>
                     </div>
                     <div class="d-flex mt-5">

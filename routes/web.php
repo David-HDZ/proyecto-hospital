@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
-use App\Http\Resources\PacienteResource;
-use App\Models\Paciente;
 
 
 /*
