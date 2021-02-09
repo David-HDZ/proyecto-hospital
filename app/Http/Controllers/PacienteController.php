@@ -38,13 +38,11 @@ class PacienteController extends Controller
     public function index(Request $request)
     {
 
-        $pacientes = Paciente::oldest()
-            //->where('tipo', 'consulta externa')
-            //->orWhere('tipo', 'urgencias')
-            ->simplePaginate(5);
+        $pacientes = Paciente::orderBy('created_at', 'DESC')
+            ->simplePaginate(10);
 
         return view('pacientes.index', compact('pacientes'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**

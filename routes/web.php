@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
-
+use App\Http\Controllers\RegistroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +24,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('pacientes', PacienteController::class);
-/*
-Route::get('/pacientes', function () {
-    return PacienteResource::collection(Paciente::all());
-});
-*/
+Route::resource('registros', RegistroController::class);
