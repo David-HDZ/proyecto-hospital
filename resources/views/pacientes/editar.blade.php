@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+{{dd($paciente)}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 margin-tb">
@@ -67,7 +68,7 @@
                         <div class="form-group col-md-6">
                             <label for="inputDireccion">Direccion</label>
                             <input type="text" value="{{ $paciente->direccion }}"
-                                class="form-control @error('inputDireccion') is-invalid @enderror" id=" inputDireccion"
+                                class="form-control @error('inputDireccion') is-invalid @enderror" id="inputDireccion"
                                 name="inputDireccion">
                             @error('inputDireccion')
                                 <span class="invalid-feedback" role="alert">

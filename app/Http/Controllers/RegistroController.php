@@ -63,9 +63,10 @@ class RegistroController extends Controller
      * @param  \App\Models\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function show(Paciente $paciente)
+    public function show($id)
     {
-        //
+        $paciente = Paciente::find($id);
+        return view('registros.mostrar', compact('paciente'));
     }
 
     /**

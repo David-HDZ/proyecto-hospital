@@ -75,11 +75,9 @@
                         <td>{{ $paciente->created_at->format('h:i a') }}</td>
                         <td class="text-capitalize">{{ $paciente->tipo }}</td>
                         <td>
-                            <form action="{{ route('pacientes.index', $paciente->id) }}" method="POST">
-                                <a class="btn btn-primary btn-sm" href="{{ route('pacientes.show', $paciente->id) }}">
-                                    Ver detalles
-                                </a>
-                            </form>
+                            <a class="btn btn-primary btn-sm" href="{{ route('registros.show', $paciente->id) }}">
+                                Ver detalles
+                            </a>
                         </td>
                     </tr>
                 @endforeach
