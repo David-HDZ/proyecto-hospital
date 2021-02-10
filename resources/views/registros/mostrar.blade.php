@@ -7,7 +7,7 @@
                     <h2>Detalles del paciente</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-link my-4" href="{{ route('pacientes.index') }}">&laquo; Atrás</a>
+                    <a class="btn btn-link my-4" href="{{ route('registros.index') }}">&laquo; Atrás</a>
                 </div>
             </div>
             <div class="col-12 col-md-8">
