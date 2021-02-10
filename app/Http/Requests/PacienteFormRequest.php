@@ -27,7 +27,7 @@ class PacienteFormRequest extends FormRequest
             'inputNombre' => 'required|max:50',
             'inputSexo' => 'required',
             'inputEdad' => 'required|min:1|integer',
-            'inputTelefono' => 'required|min:8|max:10',
+            'inputTelefono' => 'required|min:8|max:15',
             'inputDireccion' => 'required|max:200',
         ];
     }
