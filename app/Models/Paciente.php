@@ -26,7 +26,7 @@ class Paciente extends Model
     public function scopeTipo($query, $tipo)
     {
         if ($tipo != "") {
-            $query = Paciente::where('tipo', $tipo);
+            $query = $query->where('tipo', $tipo);
         }
         return $query;
     }
@@ -40,7 +40,7 @@ class Paciente extends Model
     public function scopeSexo($query, $sexo)
     {
         if ($sexo != "") {
-            $query = Paciente::where('sexo', $sexo);
+            $query = $query->where('sexo', $sexo);
         }
         return $query;
     }
@@ -56,20 +56,19 @@ class Paciente extends Model
         if ($edad != '') {
             switch ($edad) {
                 case 1:
-                    $query = Paciente::where('edad', '>', 0)->where('edad', '<', 18);
+                    $query = $query->whereBetween('edad', [0, 18]);
                     break;
                 case 2:
-                    $query = Paciente::where('edad', '>', 18)->where('edad', '<', 25);
+                    $query = $query->whereBetween('edad', [18, 25]);
                     break;
                 case 3:
-                    $query = Paciente::where('edad', '>', 25)->where('edad', '<', 60);
+                    $query = $query->whereBetween('edad', [25, 60]);
                     break;
                 case 4:
-                    $query = Paciente::where('edad', '>', 60);
+                    $query = $query->where('edad', '>', 60);
                     break;
 
                 default:
-                    $query = Paciente::where('edad', '>', 0)->where('edad', '<', 100);
                     break;
             }
         }

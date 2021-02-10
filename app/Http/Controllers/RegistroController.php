@@ -25,9 +25,9 @@ class RegistroController extends Controller
      */
     public function index(Request $request)
     {
-        $pacientes = Paciente::tipo($request->get('tipo'))
-            ->edad($request->get('edad'))
-            ->sexo($request->get('sexo'))
+        $pacientes = Paciente::Tipo($request->get('tipo'))
+            ->Sexo($request->get('sexo'))
+            ->Edad($request->get('edad'))
             ->orderBy('created_at', 'DESC')
             ->simplePaginate(10)
             ->withQueryString();
@@ -63,9 +63,10 @@ class RegistroController extends Controller
      * @param  \App\Models\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function show(Paciente $paciente)
+    public function show($id)
     {
-        //
+        $paciente = Paciente::find($id);
+        return view('registros.mostrar', compact('paciente'));
     }
 
     /**

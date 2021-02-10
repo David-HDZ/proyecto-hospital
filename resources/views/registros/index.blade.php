@@ -10,6 +10,7 @@
             </div>
         </div>
 
+
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible">
                 <p>{{ $message }}</p>
@@ -24,31 +25,31 @@
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="tipo" class="col-3">Tipo</label>
                         <select id="tipo" name="tipo" class="form-control col-9">
-                            <option value="">Selecciona...</option>
-                            <option value="urgencias">Urgencias</option>
-                            <option value="consulta externa">Consulta externa</option>
-                            <option value="adios">Quédate en casa</option>
+                            <option value="">Todos</option>
+                            <option value="urgencias" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['tipo'] == 'urgencias') selected @endif>Urgencias</option>
+                            <option value="consulta externa" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['tipo'] == 'consulta externa') selected @endif>Consulta externa</option>
+                            <option value="adios" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['tipo'] == 'adios') selected @endif>Quédate en casa</option>
                         </select>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="sexo" class="col-3">Sexo</label>
                         <select id="sexo" name="sexo" class="form-control col-9">
-                            <option value="">Selecciona...</option>
-                            <option value="H">Hombre</option>
-                            <option value="M">Mujer</option>
+                            <option value="">Todos</option>
+                            <option value="H" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['sexo'] == 'H') selected @endif>Hombre</option>
+                            <option value="M" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['sexo'] == 'M') selected @endif>Mujer</option>
                         </select>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="edad" class="col-3">Edad</label>
                         <select id="edad" name="edad" class="form-control col-9">
-                            <option value="">Selecciona...</option>
-                            <option value="1">Niños</option>
-                            <option value="2">Jovenes</option>
-                            <option value="3">Adultos</option>
-                            <option value="4">Ancianos</option>
+                            <option value="">Todos</option>
+                            <option value="1" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['edad'] == '1') selected @endif>Niños</option>
+                            <option value="2" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['edad'] == '2') selected @endif>Jovenes</option>
+                            <option value="3" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['edad'] == '3') selected @endif>Adultos</option>
+                            <option value="4" @if (count(Request::only('tipo','sexo','edad')) > 0 && Request::only('tipo','sexo','edad')['edad'] == '4') selected @endif>Ancianos</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                    <button type="submit" class="btn btn-success btn-md px-5 mb-2">Buscar</button>
                 </form>
             </div>
 
@@ -75,11 +76,9 @@
                         <td>{{ $paciente->created_at->format('h:i a') }}</td>
                         <td class="text-capitalize">{{ $paciente->tipo }}</td>
                         <td>
-                            <form action="{{ route('pacientes.index', $paciente->id) }}" method="POST">
-                                <a class="btn btn-primary btn-sm" href="{{ route('pacientes.show', $paciente->id) }}">
-                                    Ver detalles
-                                </a>
-                            </form>
+                            <a class="btn btn-outline-primary btn-sm" href="{{ route('registros.show', $paciente->id) }}">
+                                Ver detalles
+                            </a>
                         </td>
                     </tr>
                 @endforeach

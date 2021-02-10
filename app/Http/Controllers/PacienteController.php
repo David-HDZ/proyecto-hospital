@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PacienteFormRequest;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 function conPun($num)
 {
