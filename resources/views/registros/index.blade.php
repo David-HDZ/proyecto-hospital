@@ -25,27 +25,27 @@
                         <label for="tipo" class="col-3">Tipo</label>
                         <select id="tipo" name="tipo" class="form-control col-9">
                             <option value="">Selecciona...</option>
-                            <option value="urgencias">Urgencias</option>
-                            <option value="consulta externa">Consulta externa</option>
-                            <option value="adios">Quédate en casa</option>
+                            <option value="urgencias" @if (Request::all()['tipo'] == 'urgencias') selected @endif>Urgencias</option>
+                            <option value="consulta externa" @if (Request::all()['tipo'] == 'consulta externa') selected @endif>Consulta externa</option>
+                            <option value="adios" @if (Request::all()['tipo'] == 'adios') selected @endif>Quédate en casa</option>
                         </select>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="sexo" class="col-3">Sexo</label>
                         <select id="sexo" name="sexo" class="form-control col-9">
                             <option value="">Selecciona...</option>
-                            <option value="H">Hombre</option>
-                            <option value="M">Mujer</option>
+                            <option value="H" @if (Request::all()['sexo'] == 'H') selected @endif>Hombre</option>
+                            <option value="M" @if (Request::all()['sexo'] == 'M') selected @endif>Mujer</option>
                         </select>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="edad" class="col-3">Edad</label>
                         <select id="edad" name="edad" class="form-control col-9">
                             <option value="">Selecciona...</option>
-                            <option value="1">Niños</option>
-                            <option value="2">Jovenes</option>
-                            <option value="3">Adultos</option>
-                            <option value="4">Ancianos</option>
+                            <option value="1" @if (Request::all()['edad'] == '1') selected @endif>Niños</option>
+                            <option value="2" @if (Request::all()['edad'] == '2') selected @endif>Jovenes</option>
+                            <option value="3" @if (Request::all()['edad'] == '3') selected @endif>Adultos</option>
+                            <option value="4" @if (Request::all()['edad'] == '4') selected @endif>Ancianos</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Buscar</button>

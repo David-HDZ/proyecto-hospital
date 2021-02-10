@@ -25,9 +25,9 @@ class RegistroController extends Controller
      */
     public function index(Request $request)
     {
-        $pacientes = Paciente::tipo($request->get('tipo'))
-            ->edad($request->get('edad'))
-            ->sexo($request->get('sexo'))
+        $pacientes = Paciente::Tipo($request->get('tipo'))
+            ->Sexo($request->get('sexo'))
+            ->Edad($request->get('edad'))
             ->orderBy('created_at', 'DESC')
             ->simplePaginate(10)
             ->withQueryString();
