@@ -49,7 +49,7 @@
                             <option value="4" @if (count(Request::all()) > 0 && Request::all()['edad'] == '4') selected @endif>Ancianos</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                    <button type="submit" class="btn btn-success btn-md px-5 mb-2">Buscar</button>
                 </form>
             </div>
 
@@ -76,7 +76,7 @@
                         <td>{{ $paciente->created_at->format('h:i a') }}</td>
                         <td class="text-capitalize">{{ $paciente->tipo }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('registros.show', $paciente->id) }}">
+                            <a class="btn btn-outline-primary btn-sm" href="{{ route('registros.show', $paciente->id) }}">
                                 Ver detalles
                             </a>
                         </td>
