@@ -27,9 +27,9 @@
                     <th>Sexo</th>
                     <th>Edad</th>
                     <!--
-                            <th>Teléfono</th>
-                            <th>Dirección</th>
-                            -->
+                                    <th>Teléfono</th>
+                                    <th>Dirección</th>
+                                    -->
                     <th>Fecha de registro</th>
                     <th>Hora de registro</th>
                     <th>Tipo de Urgencia</th>
@@ -41,13 +41,9 @@
                         <td>{{ $paciente->nombre }}</td>
                         <td>{{ $paciente->sexo }}</td>
                         <td>{{ $paciente->edad }}</td>
-                        <!--
-                                <td>{{ $paciente->telefono }}</td>
-                                <td>{{ $paciente->direccion }}</td>
-                                -->
                         <td>{{ $paciente->created_at->format('d-m-Y') }}</td>
                         <td>{{ $paciente->created_at->format('h:i a') }}</td>
-                        <td class="text-capitalize">{{ $paciente->tipo == 'adios'? 'En casa': $paciente->tipo}}</td>
+                        <td class="text-capitalize">{{ $paciente->tipo == 'adios' ? 'En casa' : $paciente->tipo }}</td>
                         @if (Auth::user()->user_type == 'medico')
                             <td>
                                 <form action="{{ route('pacientes.destroy', $paciente->id) }}" method="POST">
