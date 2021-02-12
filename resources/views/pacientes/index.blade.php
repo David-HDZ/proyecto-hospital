@@ -47,7 +47,7 @@
                                 -->
                         <td>{{ $paciente->created_at->format('d-m-Y') }}</td>
                         <td>{{ $paciente->created_at->format('h:i a') }}</td>
-                        <td class="text-capitalize">{{ $paciente->tipo }}</td>
+                        <td class="text-capitalize">{{ $paciente->tipo == 'adios'? 'En casa': $paciente->tipo}}</td>
                         @if (Auth::user()->user_type == 'medico')
                             <td>
                                 <form action="{{ route('pacientes.destroy', $paciente->id) }}" method="POST">

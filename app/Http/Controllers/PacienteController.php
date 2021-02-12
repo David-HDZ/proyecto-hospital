@@ -79,7 +79,7 @@ class PacienteController extends Controller
         } elseif ($suma <= 8 && $suma > 6 || $sumanaranja == 3 || $sumanaranja == 4) {
             $tipo = "consulta externa";
         } elseif ($sumanaranja < 3) {
-            $tipo = "casa";
+            $tipo = "adios";
         }
 
         $paciente = new Paciente;
