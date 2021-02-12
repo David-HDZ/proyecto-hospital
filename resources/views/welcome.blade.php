@@ -10,7 +10,7 @@
                 <p>It uses utility classes for typography and spacing to space content out within the larger container.
                 </p>
             </div>
-            <img src="{{ asset('storage/img/2.jpg') }}" class="img-fluid" alt="...">
+            <img src= "https://portal.guiasalud.es/wp-content/uploads/2020/04/virus-2.jpg" class="img-fluid" alt="Foto_covid">
         </div>
     </div>
 @endsection
