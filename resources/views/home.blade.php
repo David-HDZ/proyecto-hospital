@@ -7,7 +7,7 @@
             <div class="row justify-content-center my-4">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">{{ __('Dashboard') }}</div>
+                        <div class="card-header">{{ __('Médico') }}</div>
                         <div class="card-body">
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
@@ -62,7 +62,7 @@
                 <div class="row justify-content-center my-4">
                     <div class="col-md-8">
                         <div class="card">
-                            <div class="card-header">{{ __('Dashboard') }}</div>
+                            <div class="card-header">{{ __('Administrador') }}</div>
                             <div class="card-body">
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
