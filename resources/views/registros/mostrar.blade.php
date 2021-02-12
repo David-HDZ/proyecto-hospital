@@ -30,14 +30,14 @@
                 </tr>
                 <tr>
                     <th>Tipo de atención</th>
-                    <td>{{$paciente->tipo}}</td>
+                    <td>{{ $paciente->tipo == 'adios'? 'En casa': $paciente->tipo}}</td>
                 </tr>
             </table>
                 <div class="pull-right">
                     <a class="btn btn-link my-4" href="{{ route('registros.index') }}">&laquo; Atrás</a>
                 </div>
             </div>
-            
+
         </div>
     </div>
 @endsection
