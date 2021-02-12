@@ -29,7 +29,7 @@
                     <td>{{$paciente->telefono}}</td>
                 </tr>
                 <tr>
-                    <th>Tipo</th>
+                    <th>Tipo de atención</th>
                     <td>{{$paciente->tipo}}</td>
                 </tr>
             </table>
