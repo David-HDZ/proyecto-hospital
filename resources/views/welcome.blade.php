@@ -7,12 +7,7 @@
                 <h1 class="display-4">¡Bienvenido!</h1>
                 <p class="lead">Al sistema de gestión de pacientes Covid.</p>
             </div>
-<<<<<<< HEAD
             <img src= "https://portal.guiasalud.es/wp-content/uploads/2020/04/virus-2.jpg" class="img-fluid" alt="Foto_covid">
-=======
-            <img src="https://portal.guiasalud.es/wp-content/uploads/2020/04/virus-2.jpg" class="img-fluid"
-                alt="Foto_covid">
->>>>>>> 920f1bc352500bb8cc3b31a73c16c202f6d433e4
         </div>
     </div>
 @endsection
