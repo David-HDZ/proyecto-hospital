@@ -79,7 +79,7 @@ class PacienteController extends Controller
         } elseif ($suma <= 8 && $suma > 6 || $sumanaranja == 3 || $sumanaranja == 4) {
             $tipo = "consulta externa";
         } elseif ($sumanaranja < 3) {
-            $tipo = "adios";
+            $tipo = "casa";
         }
 
         $paciente = new Paciente;
@@ -91,7 +91,7 @@ class PacienteController extends Controller
         $paciente->tipo = $tipo;
         $paciente->save();
         return redirect()->route('pacientes.index')
-            ->with('success', 'Se añadió el paciente correctamente');;
+            ->with('success', 'Se añadió el paciente correctamente.Tipo de atención: '.$tipo);
     }
 
     /**
