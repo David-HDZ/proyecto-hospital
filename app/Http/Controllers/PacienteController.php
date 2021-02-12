@@ -91,7 +91,7 @@ class PacienteController extends Controller
         $paciente->tipo = $tipo;
         $paciente->save();
         return redirect()->route('pacientes.index')
-            ->with('success', 'Se añadió el paciente correctamente');;
+            ->with('success', 'Se añadió el paciente correctamente.Tipo de atención: '.$tipo);
     }
 
     /**
