@@ -33,7 +33,7 @@ class RegistroController extends Controller
             ->withQueryString();
 
         return view('registros.index', compact('pacientes'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);;
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**

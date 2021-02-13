@@ -21,9 +21,14 @@
         @endif
         <div class="row justify-content-end">
             <div class="col-12 d-flex">
-                <a class="btn btn-outline-info" href="{{ route('descargarPDF') }}">
-                    Imprimir PDF
-                </a>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a class="btn btn-primary ml-auto"
+                            href="{{ route('descargarPDF', Request::only('tipo', 'sexo', 'edad')) }}">
+                            Descargar
+                        </a>
+                    </div>
+                </div>
                 <form action="{{ route('registros.index') }}" method="GET" class="form-inline ml-auto my-4">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="tipo" class="col-3">Tipo</label>
@@ -79,15 +84,16 @@
                         <td>{{ $paciente->created_at->format('h:i a') }}</td>
                         <td class="text-capitalize">{{ $paciente->tipo == 'adios' ? 'En casa' : $paciente->tipo }}</td>
                         <td>
-                            <a class="btn btn-outline-primary btn-sm" href="{{ route('registros.show', $paciente->id) }}">
+                            <a class="btn btn-outline-primary btn-sm"
+                                href="{{ route('registros.show', $paciente->id) }}">
                                 Ver detalles
                             </a>
                         </td>
                     </tr>
                 @endforeach
             </table>
+            {{ $pacientes->links() }}
         </div>
-        {{ $pacientes->links() }}
     </div>
 
 @endsection

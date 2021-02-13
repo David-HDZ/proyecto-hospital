@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('pacientes', PacienteController::class);
 Route::resource('registros', RegistroController::class);
 
-Route::get('/pdf', 'PDFController@PDF')->name('descargarPDF');
+Route::get('/descarga-pdf', [PDFController::class, 'PDF'])->name('descargarPDF');
