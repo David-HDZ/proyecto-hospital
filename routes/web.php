@@ -25,3 +25,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('pacientes', PacienteController::class);
 Route::resource('registros', RegistroController::class);
+
+Route::get('/pdf', 'PDFController@PDF')->name('descargarPDF');

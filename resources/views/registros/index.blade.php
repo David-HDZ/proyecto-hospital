@@ -21,6 +21,9 @@
         @endif
         <div class="row justify-content-end">
             <div class="col-12 d-flex">
+                <a class="btn btn-outline-info" href="{{ route('descargarPDF') }}">
+                    Imprimir PDF
+                </a>
                 <form action="{{ route('registros.index') }}" method="GET" class="form-inline ml-auto my-4">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="tipo" class="col-3">Tipo</label>
